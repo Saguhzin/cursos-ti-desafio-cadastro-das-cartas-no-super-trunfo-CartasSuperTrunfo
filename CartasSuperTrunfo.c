@@ -56,8 +56,9 @@ int main()
     printf("\nDigite o Número de Pontos Turísticos:\n");
     scanf("%d", &pontosTuristicos);
     
-
+  // ==================================================================================
   // Solicitando dados da SEGUNDA carta :
+  // ==================================================================================
   
     printf("\n\n2 - Dados da Segunda Carta : \n\n");
 
