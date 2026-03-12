@@ -14,7 +14,7 @@ int main()
       
       int populacao,pontosTuristicos;
       
-      float areaKm, pib;
+      float areaKm, pib, densidadePopulacional, pibPercapta;
     
     // ==================================================================================
     // Variaveis Carta2 :
@@ -24,7 +24,7 @@ int main()
       
       int populacao2,pontosTuristicos2;
       
-      float areaKm2, pib2;
+      float areaKm2, pib2, densidadePopulacional2, pibPercapta2;
 
   // ==================================================================================
   // Solicitando dados da PRIMEIRA carta :
@@ -40,9 +40,15 @@ int main()
 
     printf("\nDigite o Código da Carta :\n");
     scanf("%s", codigoCarta);
+    getchar(); //Limpar buffer que contem enter.
     
     printf("\nDigite o Nome da Cidade :\n");
-    scanf("%s", nomeCidade);
+
+    //fgets pega uma linha inteira de texto ate ó enter;
+    //(Variavel , tamanho do vetor do tipo char, stdin)
+    fgets(nomeCidade, 30, stdin);
+    
+    //scanf("%s", nomeCidade);
     
     printf("\nDigite a População  :\n");
     scanf(" %d", &populacao);                       
@@ -67,9 +73,14 @@ int main()
    
     printf("\nDigite o Código da Carta :\n");
     scanf("%s", codigoCarta2);
+    getchar();
     
     printf("\nDigite o Nome da Cidade :\n");
-    scanf("%s", nomeCidade2);
+    
+    fgets(nomeCidade2, 30, stdin);
+    
+    
+    //scanf("%s", nomeCidade2);
     
     printf("\nDigite a População  :\n");
     scanf(" %d", &populacao2);                       
@@ -83,6 +94,16 @@ int main()
     printf("\nDigite o Número de Pontos Turísticos:\n");
     scanf("%d", &pontosTuristicos2);
   
+  
+  // =========================
+  // Calculos :
+  // =========================
+    
+    densidadePopulacional = (float)populacao/areaKm;
+    densidadePopulacional2 = (float)populacao2/areaKm2;
+
+    pibPercapta = (float)pib/populacao;
+    pibPercapta2 = (float)pib2/populacao2;
 
   // =========================
   // Exibicao das Cartas :
@@ -99,16 +120,20 @@ int main()
 
       printf("Código Da Carta: %s \n" , codigoCarta);
       
-      printf("Nome Da Cidade : %s \n", nomeCidade);
+      printf("Nome Da Cidade : %s ", nomeCidade);//obs n contem "/n" pois fgets() guarda "/n" ou seja o enter.
       
       printf("População : %d \n", populacao);
       
-      printf("Área(Km²) : %f \n", areaKm);
+      printf("Área(Km²) :  %.2f \n", areaKm);
       
-      printf("PIB : %f  \n", pib);
+      printf("PIB :  %.2f  \n", pib);
       
       printf("Número de Pontos Turísticos: %d \n ", pontosTuristicos);
-
+      
+      printf("Densidade Populacional: %.2f  hab/km²\n ", densidadePopulacional);
+      
+      printf("Pib Percapta :  %.2f  \n", pibPercapta);
+    
     // =========================
     // Segunda Carta : 
     // =========================
@@ -119,16 +144,19 @@ int main()
 
       printf("Código Da Carta : %s \n" , codigoCarta2);
       
-      printf("Nome Da Cidade : %s \n", nomeCidade2);
+      printf("Nome Da Cidade : %s ", nomeCidade2); 
       
       printf("População : %d \n", populacao2);
       
-      printf("Área(Km²) : %f \n", areaKm2);
+      printf("Área(Km²) :  %.2f \n", areaKm2);
       
-      printf("PIB : %f  \n", pib2);
+      printf("PIB :  %.2f  \n", pib2);
       
       printf("Número de Pontos Turísticos: %d \n ", pontosTuristicos2);
+
+      printf("Densidade Populacional:  %.2f  hab/km²\n ", densidadePopulacional2);
       
+       printf("Pib Percapta :  %.2f  \n", pibPercapta2);
  
   return 0;  
 }
