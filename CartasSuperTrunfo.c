@@ -263,7 +263,7 @@ int main(){
       
     /////////////Super Poder/////////////////////////////////////////////////////
       
-      printf("\n\n Comparação de cartas (Atributo:Super Poder :  ");
+      printf("\n\n Comparação de cartas (Atributo:Super Poder) :  ");
 
       printf("\n\n  Carta 1 (%s) : %.2f ", codigoCarta, superPoder);
 
